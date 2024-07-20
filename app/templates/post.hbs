@@ -13,8 +13,8 @@
           >
             <img
               class="mr-4 w-16 h-16 rounded-full"
-              src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-              alt="Jese Leos"
+              src={{@model.photo}}
+              alt={{@model.created_by}}
             />
             <div>
               <a
@@ -59,9 +59,3 @@
   </div>
 </main>
 
-<footer>
-  <div class="w-full p-4 md:py-8">
-    <span class="block text-sm text-black font-semibold">© 2024 Guruh. All
-      Rights Reserved.</span>
-  </div>
-</footer>

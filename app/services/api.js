@@ -6,9 +6,9 @@ import fetch from 'fetch';
 export default class ApiService extends Service {
   @service session;
 
-  async getData() {
+  async getData(search = '') {
     const token = "1|K8Z9QGPyh7EBqAQpmeHOY1eToAovvxx9FzJMBmyo3332ccda";
-    const response = await fetch('http://127.0.0.1:8000/api/article/post', {
+    const response = await fetch('https://6101-202-43-168-208.ngrok-free.app/api/article/post?search='+search, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -19,7 +19,7 @@ export default class ApiService extends Service {
 
   async detailData(id) {
     const token = "1|K8Z9QGPyh7EBqAQpmeHOY1eToAovvxx9FzJMBmyo3332ccda";
-    const response = await fetch('http://127.0.0.1:8000/api/article/post/'+id, {
+    const response = await fetch('https://6101-202-43-168-208.ngrok-free.app/api/article/post/'+id, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
