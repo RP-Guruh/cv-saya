@@ -5,6 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'my-project',
     environment,
     rootURL: '/',
+   
     locationType: 'history',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
@@ -26,6 +27,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.URIAPI = "http://127.0.0.1:8000";
   }
 
   if (environment === 'test') {
@@ -41,6 +43,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.URIAPI = "http://127.0.0.1:8000";
     // here you can enable a production-specific feature
   }
 

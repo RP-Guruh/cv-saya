@@ -19,7 +19,7 @@ export default class ListArticle extends Component {
     try {
         let response = await this.api.getData();
         this.articles = response.data;
-      
+        console.log(this.articles);
     } catch (error) {
       console.error('Failed to fetch data', error);
     }
