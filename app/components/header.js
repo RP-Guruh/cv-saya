@@ -13,7 +13,6 @@ export default class HeaderComponent extends Component {
         link: 'about',
         isFirst: false,
       },
-   
     ];
 
     return listNavigationLink;

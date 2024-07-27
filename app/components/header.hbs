@@ -29,16 +29,22 @@
       <ul
         class="font-bold flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
-       {{#each this.listNavigation as |item|}}
-          <li>
-            <LinkTo
-              @route={{item.link}}
-              class="block text-xl py-2 px-3 {{ if item.isFirst "bg-gray-900 text-white rounded md:bg-transparent md:text-white md:p-0 dark:text-white md:dark:text-white" "text-white rounded hover:bg-gray-900 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"}}"
-              aria-current="page"
-            >{{item.name}}</LinkTo>
-          </li>
-        {{/each}}
+   {{#each this.listNavigation as |item|}}
+  {{#let (current-route) as |currentRoute|}}
+    <li>
+      <LinkTo
+        @route={{item.link}}
+        class="block text-xl py-2 px-3 {{if (eq item.link currentRoute) 'text-blue-700' 'text-white'}} rounded md:bg-transparent md:dark:text-white hover:bg-gray-900 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+        aria-current="page"
+      >
+        {{item.name}}
+      </LinkTo>
+    </li>
+  {{/let}}
+{{/each}}
+
       </ul>
     </div>
   </div>
 </nav>
+

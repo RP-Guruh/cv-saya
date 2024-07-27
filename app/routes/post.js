@@ -25,7 +25,7 @@ export default class PostRoute extends Route {
         updated_at: this.detail.updated_at,
         created_by: this.detail.user.name,
         tags: this.detail.tags,
-        photo: this.sourcePhotoProfile
+        photo: this.sourcePhotoProfile,
       };
     } catch (error) {
       console.error('Failed to fetch data', error);

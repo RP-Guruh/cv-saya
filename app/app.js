@@ -4,6 +4,7 @@ import loadInitializers from 'ember-load-initializers';
 import config from 'my-project/config/environment';
 import 'my-project/app.css';
 
+
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;

@@ -17,9 +17,9 @@ export default class ListArticle extends Component {
   @action
   async loadData() {
     try {
-        let response = await this.api.getData();
-        this.articles = response.data;
-        console.log(this.articles);
+      let response = await this.api.getData();
+      this.articles = response.data;
+      console.log(this.articles);
     } catch (error) {
       console.error('Failed to fetch data', error);
     }
@@ -40,8 +40,8 @@ export default class ListArticle extends Component {
     if (!this.search) {
       return this.articles;
     }
-    return this.articles.filter(article => 
-      article.title.toLowerCase().includes(this.search.toLowerCase())
+    return this.articles.filter((article) =>
+      article.title.toLowerCase().includes(this.search.toLowerCase()),
     );
   }
 }
