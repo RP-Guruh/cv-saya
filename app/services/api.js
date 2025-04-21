@@ -6,7 +6,7 @@ import config from 'my-project/config/environment';
 import toastr from 'toastr';
 export default class ApiService extends Service {
   @service session;
-   
+
   async getData(search = '') {
     const token = '1|K8Z9QGPyh7EBqAQpmeHOY1eToAovvxx9FzJMBmyo3332ccda';
     console.log(config.APP.URIAPI + 'api/article/post?search=' + search);
@@ -21,26 +21,29 @@ export default class ApiService extends Service {
     const data = await response.json();
 
     console.log(data);
-    
+
     return data;
   }
 
   async postData(data) {
     const token = '1|K8Z9QGPyh7EBqAQpmeHOY1eToAovvxx9FzJMBmyo3332ccda';
-    const response = await fetch(config.APP.URIAPI + '/api/submitform/form/store', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      config.APP.URIAPI + '/api/submitform/form/store',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
     const dataResponse = await response.json();
-  
-    if(dataResponse.message == 'success') {
-      let title = 'Terimakasih atas pesan kamu '+data.name;
+
+    if (dataResponse.message == 'success') {
+      let title = 'Terimakasih atas pesan kamu ' + data.name;
       let message = 'Secepatnya saya akan menghubungi kamu kembali 😊';
-     
+
       toastr.success(message, title, {
         debug: false,
         positionClass: 'toast-top-right',
@@ -48,13 +51,12 @@ export default class ApiService extends Service {
         fadeIn: 300,
         fadeOut: 1000,
         timeOut: 5000,
-        extendedTimeOut: 1000
+        extendedTimeOut: 1000,
       });
-    }
-    else {
+    } else {
       let title = 'Oooppss.. maaf terjadi kesalahan 😕';
-      let message = dataResponse.message+' silahkan coba kembali';
-     
+      let message = dataResponse.message + ' silahkan coba kembali';
+
       toastr.error(message, title, {
         debug: false,
         positionClass: 'toast-top-right',
@@ -62,7 +64,7 @@ export default class ApiService extends Service {
         fadeIn: 300,
         fadeOut: 1000,
         timeOut: 5000,
-        extendedTimeOut: 1000
+        extendedTimeOut: 1000,
       });
     }
     console.log(dataResponse);
